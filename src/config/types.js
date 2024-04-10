@@ -1,6 +1,7 @@
 /**
  * @typedef Route
  * @property {string} path
+ * @property {"GET" | "PUT" | "POST" | "PATCH" | "DELETE"} method
  * @property {string} usage
  * @property {string} authRequirements
  * @property {() => void} handler
@@ -10,9 +11,13 @@
  * @typedef Player
  * @property {string} name
  * @property {number} health
+ * @property {number} hunger
+ * @property {number} thirst
  * @property {MapNode | null} currentNode
  * @property {MapNode | null} nextNode
  * @property {number} currentToNextNodeProgress - This should be a percentage from 0 to 100
+ * @property {Item[]} inventory
+ * @property {number} weightCap
  */
 
 /**
@@ -20,12 +25,6 @@
  * @property {number} health
  */
 
-/**
- * @typedef Item
- * @property {string} name
- * @property {number} health
- * 
- */
 
 /**
  * @typedef MapNode
@@ -45,3 +44,35 @@
  * @property {MapNode[]} nodes
  * @property
  */
+
+
+/**
+ * @typedef {string[]} Status
+ */
+
+/**
+ * @typedef Item
+ * @property {string} name
+ * @property {"weapon" | "tool"} type
+ * @property {number} damage
+ * @property {number} durability
+ * @property {Status} status
+ * @property {number} weight
+ * @property {number} perUsePercentage
+*/
+
+/**
+ * @typedef __ConsumableItem
+ * @property {"consumable" } type
+ * @property {number} health
+ * @property {number} hunger
+ * @property {number} thirst
+ * @property {number} remainingPercentage
+ * @property {number} weight
+ * @property {number} perUsePercentage
+
+/**
+ * @typedef {Item | __ConsumableItem} Consumable
+ */ 
+
+const /** @type {ConsumableItem} */ item = {}
