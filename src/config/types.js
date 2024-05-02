@@ -53,7 +53,8 @@
 /**
  * @typedef Item
  * @property {string} name
- * @property {"weapon" | "tool"} type
+ * @property {"weapon" | "tool" | "consumable"} type
+ * @property {string[]} canBeUsedOn
  * @property {number} damage
  * @property {number} durability
  * @property {Status} status

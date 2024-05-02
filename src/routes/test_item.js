@@ -1,5 +1,5 @@
-import item from "../items/tempItemInfo.js"
-import useItem from "../items/useItem.js"
+import { item as itemInfo, player } from "../items/temp_info.js"
+import Item from "../items/item.js"
 
 /**
  * 
@@ -7,19 +7,30 @@ import useItem from "../items/useItem.js"
  * @param {Response} res 
  */
 export default function testItem(req, res) {
-  
+  const item = new Item("weapon", { name: "an name", damage: 5, weight: 25, durability: 9000 })
   let str = ""
-  str += JSON.stringify(item)
+  str += JSON.stringify(itemInfo)
   /** @type {Player} */
-  const player = {}
   try {
-
-    useItem(req.body.useType, item, player)
+    switch (req.body.useType) {
+      case "attack":
+        item.attack(player)
+        break
+      case "use":
+        item.use(player)
+        break
+      case "consume":
+        item.consume(player)
+        break
+      default:
+        console.log("default case hit")
+        break
+    }
   }
   catch (/** @type {ErrorEvent}*/err) {
     console.log(err)
   }
   str += "\n\n\n\n"
-  str += JSON.stringify(item)
+  str += JSON.stringify(itemInfo)
   res.json(str)
 }
