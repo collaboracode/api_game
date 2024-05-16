@@ -1,5 +1,9 @@
+import playerCharacterGenerator from "./playerCharacterGenerator.js"
 
-const playerDebuffScenarios = [
+const player = new playerCharacterGenerator()
+console.log(player)
+
+/*const playerDebuffScenarios = [
 
     {scenario: "Player trips over branch", effect: health - 1},
     {scenario: "Player burns their hand", effect: health - 3},
@@ -13,3 +17,5 @@ const playerDebuffScenarios = [
 //Follow soup's example of making an API call. Try to make an API call. 
 
 //Look up unreal map generation examples. Something a bit older to start off with UR3 perhaps first. 
+
+*/

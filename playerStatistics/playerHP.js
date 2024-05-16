@@ -15,12 +15,7 @@
 
 //Alternate way that this could perhaps be created
 
-export default function createCharacter(playerName, age) {
-  const newCharacter = Object.create(this);
-  newCharacter.playerName = playerName;
-  newCharacter.age = age;
-  return newCharacter;
-}
+ 
 
 //Each of the status effects below are how they should scale; default value is of course 0 when starting
 const player = {
@@ -66,5 +61,7 @@ const player = {
     { skillName: "Luck", level: 0 },
   ],
 };
+
+export default player
 
 //Add new file which goes over different scenarios in which these elements can change.
