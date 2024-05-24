@@ -29,12 +29,10 @@ const routes = [
     method: "get",
     usage: "This is used to get the full list of available routes",
     authRequirements: "none",
-    handler: availableRoutes
+    handler: routeList
   },
   {
     path: "/new_map",
-    method: "put",
-    path: "/gen_map",
     method: "PUT",
     usage: "This is a test of the map generator",
     params: newMapParams,

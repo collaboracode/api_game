@@ -54,7 +54,7 @@ export function createMap(seed = Math.random() * 8, width, height) {
       const distX = Math.abs(middleOfMap.x - col)
       const distY = Math.abs(middleOfMap.y - row)
       const distFromCenter = Math.sqrt(distX * distX + distY * distY)
-      const val1 = Math.sin(Math.sqrt(((Math.PI + seed) * (seed + (distX + dist ?? Math.PI))) % ((distFromCenter + Math.PI) % Math.PI))) % Math.PI
+      const val1 = Math.sin(Math.sqrt(((Math.PI + seed) * (seed + (distX + distY ?? Math.PI))) % ((distFromCenter + Math.PI) % Math.PI))) % Math.PI
       const val2 = Math.cos((Math.sqrt((Math.PI + seed) * (seed + (distY + distX ?? Math.PI))) % ((distFromCenter + Math.PI) % Math.PI))) % Math.PI
       const finalVal = val1 + val2;
       if (Math.abs(finalVal) > 1.5) {
