@@ -50,8 +50,10 @@ class Router {
          */
         const routeInfo = {
           path: route.path,
+          method: route.method,
           usage: route.usage,
           authRequirements: route.authRequirements,
+          params: route.params ?? undefined
         }
         res.json(routeInfo)
       })

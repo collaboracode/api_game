@@ -1,6 +1,8 @@
 /**
  * @typedef Route
  * @property {string} path
+ * @property {string} method
+ * @property {{[key: string]: ("required": "optional")} || undefined} params  
  * @property {string} usage
  * @property {string} authRequirements
  * @property {() => void} handler

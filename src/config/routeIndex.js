@@ -1,8 +1,8 @@
 import './types.js'
 import about from "../routes/about.js"
 import root from "../routes/root.js"
-import availbleRoutes from '../routes/availableRoutes.js'
-import genMap from '../routes/genMap.js'
+import availableRoutes from '../routes/route_list.js'
+import newMap, {params as newMapParams} from '../routes/new_map.js'
 
 // todo make a type for authRequirements, so that we can have standard options for it.
 
@@ -29,14 +29,15 @@ const routes = [
     method: "get",
     usage: "This is used to get the full list of available routes",
     authRequirements: "none",
-    handler: availbleRoutes
+    handler: availableRoutes
   },
   {
-    path: "/gen_map",
+    path: "/new_map",
     method: "put",
     usage: "This is a test of the map generator",
+    params: newMapParams,
     authRequirements: "token required (probably)",
-    handler: genMap
+    handler: newMap
   }
 ]
 export default routes
