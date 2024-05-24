@@ -1,7 +1,7 @@
 /**
  * @typedef Route
  * @property {string} path
- * @property {string} method
+ * @property {"GET" | "PUT" | "POST" | "PATCH" | "DELETE"} method
  * @property {{[key: string]: ("required": "optional")} || undefined} params  
  * @property {string} usage
  * @property {string} authRequirements
@@ -82,3 +82,35 @@
  */
 
 
+
+
+/**
+ * @typedef {string[]} Status
+ */
+
+/**
+ * @typedef Item
+ * @property {string} name
+ * @property {"weapon" | "tool"} type
+ * @property {number} damage
+ * @property {number} durability
+ * @property {Status} status
+ * @property {number} weight
+ * @property {number} perUsePercentage
+*/
+
+/**
+ * @typedef __ConsumableItem
+ * @property {"consumable" } type
+ * @property {number} health
+ * @property {number} hunger
+ * @property {number} thirst
+ * @property {number} remainingPercentage
+ * @property {number} weight
+ * @property {number} perUsePercentage
+
+/**
+ * @typedef {Item | __ConsumableItem} Consumable
+ */ 
+
+const /** @type {ConsumableItem} */ item = {}

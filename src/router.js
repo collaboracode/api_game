@@ -27,20 +27,20 @@ class Router {
 
     this.routes = routes
     this.routes.forEach(route => {
-      switch (route.method) {
-        case "get":
+      switch (route.method.toUpperCase()) {
+        case "GET":
           this.app.get(route.path, route.handler)
           break
-        case "put":
+        case "PUT":
           this.app.put(route.path, route.handler)
           break
-        case "post":
+        case "POST":
           this.app.post(route.path, route.handler)
           break
-        case "patch":
+        case "PATCH":
           this.app.patch(route.path, route.handler)
           break
-        case "delete":
+        case "DELETE":
           this.app.delete(route.path, route.handler)
           break
       }
