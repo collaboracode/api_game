@@ -23,6 +23,8 @@ class Router {
       }
     })
 
+  
+
     this.routes = routes
     this.routes.forEach(route => {
       switch (route.method) {

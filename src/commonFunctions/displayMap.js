@@ -36,3 +36,5 @@ export default function displayMap(map) {
   display2 += "==========\n"
   return display + display2;
 }
+
+

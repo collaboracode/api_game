@@ -39,5 +39,7 @@ const routes = [
     authRequirements: "token required (probably)",
     handler: newMap
   }
+
+
 ]
 export default routes
