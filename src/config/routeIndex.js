@@ -3,6 +3,7 @@ import about from "../routes/about.js"
 import root from "../routes/root.js"
 import routeList from '../routes/route_list.js'
 import newMap, {params as newMapParams} from '../routes/new_map.js'
+import testDatabase from '../routes/test_db.js'
 
 // todo make a type for authRequirements, so that we can have standard options for it.
 
@@ -38,6 +39,13 @@ const routes = [
     params: newMapParams,
     authRequirements: "token required (probably)",
     handler: newMap
+  },
+  {
+    path: "/test_db",
+    method: "GET",
+    usage: "this is a test of the db connection",
+    authRequirements: "none",
+    handler: testDatabase
   }
 
 
