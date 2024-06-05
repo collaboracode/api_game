@@ -1,7 +1,42 @@
-import playerCharacterGenerator from "./playerCharacterGenerator.js"
+/*
+Action: [
+    { actionName: "pourWater", itemUsed: 0 },
 
-const player = new playerCharacterGenerator()
-console.log(player)
+  ],
+*/
+const playerActions = {
+    Action: [
+        {actionName: "pourWater", itemUsed: 0},
+        {actionName: "playerMove", itemUsed: 0},
+        {actionName: "playerWalk", itemUsed: 0},
+        {actionName: "playerIdle", itemUsed: 0},
+        {actionName: "playerHeal", itemUsed: 0},
+
+    ]
+}
+
+const playerBuffScenarios = [
+    {scenario: "Player trips over branch", effect: 0},
+    {scenario: "Player trips over branch", effect: 0},
+    {scenario: "Player trips over branch", effect: 0},
+    {scenario: "Player trips over branch", effect: 0},
+    {scenario: "Player trips over branch", effect: 0},
+
+
+]
+
+
+const playerDebuffScenarios = [
+    {scenario: "Player trips over branch", effect: 0},
+    {scenario: "Player burns their hand", effect: 0},
+    {scenario: "Player drinks tainted water", effect: 0},
+    {scenario: "Player gets bit by wild animal", effect: 0},
+    {scenario: "Player is shot by a gun", effect: 0},
+
+]
+
+
+
 
 /*const playerDebuffScenarios = [
 
@@ -12,6 +47,8 @@ console.log(player)
     {scenario: "Player is shot by a gun", effect: health - 1}
 
 ]
+
+
 
 //Create either a random character generator or a class based system; something that pre-assigns points to each of the special attributes
 //Follow soup's example of making an API call. Try to make an API call. 

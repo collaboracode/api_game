@@ -2,7 +2,7 @@
 
 
  
-class playerCharacterGenerator{
+export default class playerCharacterGenerator{
     /**
      * @param {string} playerNameRandom
      * @param {number} age
@@ -15,6 +15,23 @@ class playerCharacterGenerator{
      * @returns {Player} 
      */
 
+
+        //Action points should be added to the character generator 
+        //What kind if actions can the player do? 
+        //possible parameters: source, destination, health, attack power
+        //Define the actions within an array of possible actions; parameters those types of might have.
+        //Item used, no item, 
+        //Action examples: chop down a tree, gather sticks, filter water
+
+        /*
+        { Action: "Strength", level: 0 },
+    { skillName: "Perception", level: 0 },
+    { skillName: "Endurance", level: 0 },
+    { skillName: "Charisma", level: 0 },
+    { skillName: "Intelligence", level: 0 },
+    { skillName: "Agility", level: 0 },
+    { skillName: "Luck", level: 0 }
+        */
 
    constructor(){
         this.playerNameRandom = this.selectRandomName()
@@ -52,4 +69,4 @@ class playerCharacterGenerator{
     */
 }
 
-export default playerCharacterGenerator
+ 
