@@ -3,7 +3,6 @@ version: "3.1"
 services:
   app:
     container_name: app
-    image: app
     restart: always
     build:
       context: .
@@ -11,9 +10,10 @@ services:
       target: base
     ports:
       - "3000:3000"
+    volumes:
+    - ./src:/app/src
   mongo:
     image: mongo
-    # image: mongodb/mongodb-community-server:latest
     restart: always
     container_name: mongo
     ports:
@@ -23,12 +23,3 @@ services:
         max-size: 1g
     volumes:
       - ./db/db_data/:/db/
-# services:
-  # app:
-  #   image: mongodb/mongodb-community-server:latest
-  #   command: "docker-entrypoint.sh"
-  #   ports:
-  #     - 127.0.0.1:27017:27017
-  #   working_dir: /app
-  #   volumes:
-  #     - ./:/app/db

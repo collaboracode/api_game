@@ -1,7 +1,8 @@
 FROM node:alpine as base
+RUN mkdir -p /app
 WORKDIR /app
-COPY package.json package.lock.json
-RUN sudo rm -rf node_modules && npm install
-# RUN npm install
+COPY package*.json ./
+RUN rm -rf node_modules && npm install
 COPY . .
+# RUN npm install
 CMD ["node", "./index.js"]

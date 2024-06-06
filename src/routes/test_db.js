@@ -8,8 +8,11 @@ import item from "../items/tempItemInfo.js";
 export default function testDatabase(req, res) {
   const dbc = new DatabaseController()
   // dbc.getStatus().then(status => res.json(status))
-  dbc.getCollections().then(val => {
-    console.log(val)
-    res.json(val)
+  dbc.createCollection(req.body.name ?? "").then(() => {
+
+    dbc.getCollections().then(val => {
+      console.log(val)
+      res.json(val)
+    })
   })
 }

@@ -6,10 +6,7 @@ This is a game you play via a terminal using something like curl requests or a p
 You will need a env file usable names (local.env | .env | production.env)
 - local.env example
 ```bash
-DATABASE_URL="mongodb://localhost:27017"
-ITEMS_COLLECTION_NAME="items"
-PLAYER_COLLECTION_NAME="players"
-GAME_DATA_COLLECTION_NAME="saved_games"
+DATABASE_URL="mongodb://mongo:27017"
 ```
 ### Running server.
 #### Run just the API
@@ -31,7 +28,6 @@ Then run the containers with
 ```bash
 sudo docker compose up
 ```
-
 
 ## Available routes 
 Visit **/routes** to see the routes available.
