@@ -12,6 +12,8 @@ services:
       - "3000:3000"
     volumes:
     - ./src:/app/src
+    depends_on:
+    - mongo
   mongo:
     image: mongo
     restart: always
@@ -22,4 +24,4 @@ services:
       options:
         max-size: 1g
     volumes:
-      - ./db/db_data/:/db/
+      - ./src/db/db_data/:/db/

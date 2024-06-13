@@ -1,8 +1,9 @@
 FROM node:alpine as base
-RUN mkdir -p /app
+RUN npm install -g nodemon
+# RUN mkdir -p /app
 WORKDIR /app
 COPY package*.json ./
-RUN rm -rf node_modules && npm install
 COPY . .
-# RUN npm install
-CMD ["node", "./index.js"]
+# RUN rm -rf node_modules && npm install
+RUN npm install
+CMD ["nodemon", "-L", "./index.js"]

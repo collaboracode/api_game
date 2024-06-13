@@ -41,9 +41,9 @@ const routes = [
     handler: newMap
   },
   {
-    path: "/test_db",
-    method: "GET",
-    usage: "this is a test of the db connection",
+    path: "/create_collection",
+    method: "PUT",
+    usage: "This is a test, of creating collections",
     authRequirements: "none",
     handler: testDatabase
   }
