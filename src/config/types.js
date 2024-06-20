@@ -8,8 +8,25 @@
  * @property {() => void} handler
  */
 
+
 /**
- * @typedef Player
+ * @typedef Game
+ * @property {number} _id
+ * @property {GameMap} map
+
+ * using the user._id to get the player
+ * @property {{player: number, character: Character}[]} players
+ */
+/**
+ * @typedef User
+ * @property {number} _id
+ * @property {string} username
+ * @property {number[]} activeGames
+ */
+
+//! not sure player is the right name
+/**
+ * @typedef Character
  * @property {string} name
  * @property {number} health
  * @property {MapNode | null} currentNode

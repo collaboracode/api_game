@@ -1,8 +1,8 @@
 import DatabaseController from "../../databaseController";
 
-function seedDb() {
+export default function seedDb() {
   const dbc = new DatabaseController()
-  const p1 = dbc.createCollection("game_info")
-  const p2 = dbc.createCollection("items")
-  const p3 = dbc.createCollection("players")
+  // const p1 = dbc.createCollection("")
+  const p2 = dbc.createCollection("games")
+  const p3 = dbc.createCollection("users")
 }

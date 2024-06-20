@@ -43,4 +43,13 @@ authRequirements: "The type of auth required",
 handler: fn() - the function that runs when you visit the route.
 ```
 
+
 # Docker setup
+if using apt as package manager, you should be able to run
+```bash
+sudo ./docker_setup.sh
+```
+if it is not executable then run
+```bash
+chmod +x ./docker_setup.sh
+```

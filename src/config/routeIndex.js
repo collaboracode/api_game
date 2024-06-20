@@ -1,9 +1,10 @@
 import './types.js'
 import about from "../routes/about.js"
 import root from "../routes/root.js"
-import routeList from '../routes/route_list.js'
-import newMap, {params as newMapParams} from '../routes/new_map.js'
-import testDatabase from '../routes/test_db.js'
+import routeList from '../routes/get_route_list.js'
+import newMap, { params as newMapParams } from '../routes/new_map.js'
+import { createCollection, insertOne, getCollectionsList } from '../routes/test_db/testDb.js'
+import { createUser } from '../routes/test_db/create_user.js'
 
 // todo make a type for authRequirements, so that we can have standard options for it.
 
@@ -45,9 +46,22 @@ const routes = [
     method: "PUT",
     usage: "This is a test, of creating collections",
     authRequirements: "none",
-    handler: testDatabase
+    handler: createCollection
+  },
+  {
+    path: "/insert_data",
+    method: "PUT",
+    usage: "This is a test, of creating collections",
+    authRequirements: "none",
+    handler: insertOne
+  },
+  {
+    path: '/create_user',
+    method: 'PUT',
+    usage: "this is to create a user",
+    authRequirements: "none",
+    handler: createUser
   }
-
 
 ]
 export default routes

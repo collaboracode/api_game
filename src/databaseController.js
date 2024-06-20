@@ -31,7 +31,7 @@ class DatabaseController {
    * @param {M.Document} data 
    */
   async insertOne(collectionName, data) {
-    this.db.collection(collectionName).insertOne(data)
+    return this.db.collection(collectionName).insertOne(data)
   }
 
   /**
@@ -40,7 +40,7 @@ class DatabaseController {
    * @param {M.Filter<M.BSON.Document>} filter
    */
   async findOne(collectionName, filter) {
-    this.db.collection(collectionName).findOne(filter)
+    return this.db.collection(collectionName).findOne(filter)
   }
   async getStatus() {
 
