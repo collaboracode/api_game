@@ -6,6 +6,8 @@ Action: [
 
   https://blog.axway.com/learning-center/software-development/api-development/beginners-javascript-objects-and-arrays-2
 */
+
+
 const playerActions = {
     Action: [
         {actionName: "playerMove", itemUsed: 0},
