@@ -1,25 +1,30 @@
-import DatabaseController from "../../databaseController"
+import { UserDatabaseController } from "../../databaseController.js"
 /**
  * 
  * @param {Request} req 
  * @param {Response} res 
  */
-export function createUser(req, res) {
-  const dbc = new DatabaseController()
+export default function createUser(req, res) {
+  const dbc = new UserDatabaseController()
   // dbc.getStatus().then(status => res.json(status))
   const fmt = () => {
-    res.status().json({requiredFormat: {username: "string"}})
+    res.status().json({
+      requiredFormat: {
+        username: "string [255]",
+        email: "string [255]",
+        password: "string [255]"
+      }
+    })
   }
   if (!req.bodyUsed) {
     fmt()
-    return 
+    return
   }
-  const {username} = res.body
-  if (typeof username !== 'string') {
-   fmt()
-   return 
+  const { username, email, password } = res.body
+  if (typeof username !== 'string' || email !== 'string' || password !== 'string'
+    || username.length > 255 || email.length > 255 || password.length > 255) {
+    fmt()
+    return
   }
-  dbc.insertOne(process.env.PLAYER_COLLECTION_NAME, {username}).then(() => {
-    
-  })
+  dbc.createUser(username, email, password)
 }

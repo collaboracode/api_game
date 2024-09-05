@@ -19,8 +19,11 @@
  */
 /**
  * @typedef User
- * @property {number} _id
+ * @property {number} 
  * @property {string} username
+ * @property {string} email
+ * @property {string} password_hash
+ * @property {string} salt
  * @property {number[]} activeGames
  */
 
