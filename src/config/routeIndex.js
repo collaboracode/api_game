@@ -4,8 +4,8 @@ import root from "../routes/root.js"
 import routeList from '../routes/get_route_list.js'
 import newMap, { params as newMapParams } from '../routes/new_map.js'
 import { createCollection, insertOne, getCollectionsList } from '../routes/test_db/testDb.js'
-import { createUser } from '../routes/test_db/create_user.js'
-
+import createUser from '../routes/test_db/create_user.js'
+import getUsers from '../routes/test_db/get_users.js'
 // todo make a type for authRequirements, so that we can have standard options for it.
 
 /**
@@ -61,6 +61,13 @@ const routes = [
     usage: "this is to create a user",
     authRequirements: "none",
     handler: createUser
+  },
+  {
+    path: '/get_users',
+    method: 'GET',
+    usage: "this is to get a list users",
+    authRequirements: "none",
+    handler: getUsers 
   }
 
 ]

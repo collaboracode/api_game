@@ -1,7 +1,15 @@
 version: "3.1"
-
+volumes:
+  data:
+  app_node_modules:
+  app:
 services:
   app:
+    # build: ./
+    # command: npm start
+    # ports:
+    # - '3000:3000'
+ 
     container_name: app
     restart: always
     build:
@@ -11,10 +19,23 @@ services:
     ports:
       - "3000:3000"
     volumes:
-    - ./src:/app/src
+      - app:/app
+      - app_node_modules:/app/node_modules
     depends_on:
     - mongo
-    - sqlite
+    - postgres
+    develop:
+      watch:
+        - action: rebuild
+          path: ./**/*
+
+        # - action: sync
+        #   path: 
+        #   target: /**/*
+        #   ignore:
+        #     - node_modules/
+        # - action: rebuild
+        #   path: package.json
   mongo:
     image: mongo
     restart: always
@@ -26,11 +47,35 @@ services:
         max-size: 1g
     volumes:
       - ./db/db_data/:/db/
-  sqlite:
-    image: alpine:latest
-    stdin_open: true
-    tty: true
+    # environment:
+      # MONGO_INITDB_ROOT_USERNAME: user
+      # MONGO_INITDB_ROOT_PASSWORD: password
+  postgres:
+    # image: postgres:14.1-alpine
+    image: 'postgres:latest'
+
+    restart: always
+    container_name: postgres-container
+    environment:
+      PGUSER: postgres
+      POSTGRES_USER: postgres # The PostgreSQL user (useful to connect to the database)
+      # POSTGRES_HOST: postgres 
+      POSTGRES_PASSWORD: password # The PostgreSQL password (useful to connect to the database)
+      # POSTGRES_HOST_AUTH_METHOD: scram-sha-256
+      POSTGRES_HOST_AUTH_METHOD: trust
+      # POSTGRES_INITDB_ARGS: --auth=scram-sha-25
+      POSTGRES_DB: users
+    # environment:
+    #   POSTGRES_USER: postgres # The PostgreSQL user (useful to connect to the database)
+    #   POSTGRES_PASSWORD: password # The PostgreSQL password (useful to connect to the database)
+    #   POSTGRES_DB: users
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - 5432:5432
     volumes:
-      - ./db/db_data:/data
-    command: sh -c "apk --no-cache add sqlite && sqlite3 && tail -f /dev/null"
-    container_name: sqlite-container
+      - data:/var/lib/postgresql/data```
+      - ./db/init:/docker-entrypoint-initdb.d
